@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="maindiv">
-        <form method="post" action="./contacts.html">
+        <form method="post" action="script.php">
             <div>
                 <h1>Contact Us</h1>
             </div>
@@ -25,31 +25,31 @@
                 <div class="forminput">
                     <span class="fname-error"></span>
                     <label>First Name</label>
-                    <input type="text" id="fname">
+                    <input type="text" id="fname" name="fname">
                 </div>
                 <div class="forminput">
                     <span class="lname-error"></span>
                     <label>Last Name</label>
-                    <input type="text" id="lname">
+                    <input type="text" id="lname" name="lname">
                 </div>
                 <div class="forminput">
                     <span class="email-error"></span>
                     <label>Email</label>
-                    <input type="text" id="email">
+                    <input type="text" id="email" name="email">
                 </div>
                 <div class="forminput">
                     <span class="phone-error"></span>
                     <label>Phone No</label>
-                    <input type="text" id="phone">
+                    <input type="text" id="phone" name="phone">
                 </div>
                 <div class="forminput">
                     <span class="message-error"></span>
                     <label>Message</label>
-                    <textarea id="message"></textarea>
+                    <textarea id="message" name="message" rows="5" cols="10"></textarea>
                 </div>
                 <div class="forminput">
-                    <span class="submi-error"></span>
-                    <input id="btn" type="submit" value="Submit">
+                    <span class="submit-error"></span>
+                    <input id="submit" type="submit" value="Submit" name="submit">
                 </div>
                 <div class="link" >
                     <a href="homepage"> Go back to Home</a>
@@ -78,9 +78,6 @@
             </div>
         </div>
     </div>
-
-    
-    <scrip src="./script.js"></scrip>
     
 </body>
 </html>
