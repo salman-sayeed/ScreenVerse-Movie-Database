@@ -16,59 +16,80 @@ body {
     background-size: cover;
 }
 
-#mainbox {
+.maindiv{
     background-color: #222222; 
     width: 80%; 
-    max-width:900px; 
+    max-width:600px; 
     padding: 20px; 
     margin-top: 40px;
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-div{
-    padding-left: 35px;
-    padding-right: 35px;
+h1{
+    color: #00acc1;
 }
 
-#mainlogo img {
-    width: 35%; 
-    height: auto;
-    margin-top: 25px;
-}
-
-
-#intro{
-    margin: 0 0 40px 0;
-    color: #999999;
+h2{
     font-size: 15px;
+    margin: 0 0 50px 0;
 }
 
-.btns a {
-    padding:10px 20px;
+.contactform {
+    max-width: 400px;
+    margin: auto;
+}
+
+.forminput {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+label {
+    width: 100px;         
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    width: 150px;
+    margin: auto; 
+    padding: 10px 20px;
     background-color: #00acc1;
-    color: #e6e6e6; 
-    text-align: center; 
-    text-decoration: none; 
-    border-radius: 10px; 
-    font-size: 18px; 
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-#btn2 {   
-    margin:50px 0 50px 0;
-}
-
-.btns a:hover {
+input[type="submit"]:hover {
     background-color: #007c91; 
     transform: scale(1.05);  
     color: #ffffff;         
 }
 
-.desc{
-    color: #737373;
-    margin: 0 0 20px 0;
+.link a{
+    text-decoration: none;
+    color:#00acc1;
 }
+
 
 #footer {
     margin: 60px 0 0 0;
@@ -82,11 +103,10 @@ div{
 #footer-links a{
     text-decoration: none;
     margin: 0 5px 5px 0;
-    color: #00acc1;
+    color: #b3b3b3;
 }
 
 #footer-social a{
     margin: 0 5px 5px 0;
     color: #b3b3b3;
 }
-
