@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Role-Based Access</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #eef1f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #2c3e50;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #34495e;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: #4caf50;
+      width: 0;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .role-info {
+      background: #ecf9f0;
+      padding: 1rem;
+      border-left: 6px solid #4caf50;
+      margin-bottom: 2rem;
+      border-radius: 6px;
+    }
+
+    .accordion {
+      border: none;
+      background: #4caf50;
+      color: white;
+      padding: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      width: 100%;
+      text-align: left;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+
+    .accordion:hover {
+      background: #45a049;
+    }
+
+    .panel {
+      padding: 1rem;
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    select {
+      width: 100%;
+      max-width: 300px;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 0.3rem;
+    }
+
+    button.assign-btn {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: #2196f3;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.assign-btn:hover {
+      background-color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Role-Based Access</h2>
+
+    <!-- Navigation -->
+    <div class="nav">
+      <a href="#" class="admin editor user">Home</a>
+      <!-- No other menu items shown on Home -->
+    </div>
+
+    <!-- Current Role Info -->
+    <div class="role-info" id="roleDisplay">
+      Logged in as: <strong>User</strong> (default)
+    </div>
+
+    <!-- Permission Settings (Accordion) -->
+    <button class="accordion admin" onclick="togglePanel('permissionsPanel')">
+      Permission Settings
+    </button>
+    <div id="permissionsPanel" class="panel">
+      <h3>Assign Roles</h3>
+      <label for="userSelect">Select User</label>
+      <select id="userSelect">
+        <option>Alice</option>
+        <option>Bob</option>
+        <option>Charlie</option>
+      </select>
+
+      <label for="roleSelect">Assign Role</label>
+      <select id="roleSelect">
+        <option value="admin">Admin</option>
+        <option value="editor">Editor</option>
+        <option value="user">User</option>
+      </select>
+
+      <button class="assign-btn" onclick="assignRole()">Assign Role</button>
+    </div>
+  </div>
+
+  <script>
+    // Default role
+    let currentRole = 'user';
+
+    function assignRole() {
+      const selectedRole = document.getElementById('roleSelect').value;
+      currentRole = selectedRole;
+
+      // Update role info
+      document.getElementById('roleDisplay').innerHTML =
+        `Logged in as: <strong>${capitalize(selectedRole)}</strong>`;
+
+      // Update nav visibility
+      document.querySelectorAll('.nav a').forEach(link => {
+        link.classList.add('hidden');
+        if (link.classList.contains(currentRole)) {
+          link.classList.remove('hidden');
+        }
+      });
+
+      // Show/hide admin sections
+      document.querySelectorAll('.admin').forEach(el => {
+        el.style.display = currentRole === 'admin' ? '' : 'none';
+      });
+    }
+
+    function togglePanel(id) {
+      const panel = document.getElementById(id);
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    // Initialize
+    assignRole();
+  </script>
+
+</body>
+</html>
