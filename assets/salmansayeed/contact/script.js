@@ -1,6 +1,17 @@
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(".content-container,.navbar-container,.content-container-box,.contact-box,.toggle");
 
+ball.addEventListener("click", () =>{
+    items.forEach(item=>{
+        item.classList.toggle("active");
+    });
+
+    ball.classList.toggle("active");
+})
+
+
+
+
 
 document.getElementById('reset-btn').addEventListener('click', () => {  //resetbutton
     
@@ -20,11 +31,17 @@ document.getElementById('reset-btn').addEventListener('click', () => {  //resetb
     document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
 });
 
-document.getElementById('submit-btn').addEventListener('click', (e) => {   //submitbutton
-    if (!validateForm()) {
-        e.preventDefault(); 
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    const result = validateForm(); // Get validation result
+
+    console.log("Validation result:", result); // Optional: Debugging
+
+    if (!result) {
+        e.preventDefault(); // Prevent form submission if validation fails
     }
 });
+
+
 
 const validateForm = () => {
     let isValid = true;
@@ -38,23 +55,17 @@ const validateForm = () => {
     return isValid;
 };
 
-ball.addEventListener("click", () =>{
-    items.forEach(item=>{
-        item.classList.toggle("active");
-    });
-
-    ball.classList.toggle("active");
-})
-
 let fnameVal = () => {
     const fname = document.getElementById("fname").value.trim();
     const fnameError = document.getElementById("fname-error");
     if (fname === "") {
         fnameError.innerHTML = "First Name Can't Be Empty!";
         fnameError.classList.add("show"); 
+        return false;
     } else {
         fnameError.innerHTML = "";
         fnameError.classList.remove("show");
+        return true;
     }
 };
 
@@ -64,9 +75,11 @@ let lnameVal = () => {
     if (lname === "") {
         lnameError.innerHTML = "Last Name Can't Be Empty!";
         lnameError.classList.add("show");
+        return false;
     } else {
         lnameError.innerHTML = "";
         lnameError.classList.remove("show");
+        return true;
     }
 };
 
@@ -77,7 +90,7 @@ let emailVal = () => {
     if (email === "") {
         emailError.innerHTML = "Please enter a valid email!";
         emailError.classList.add("show");
-        return;
+        return false;
     }
 
     const atIndex = email.indexOf("@");
@@ -86,17 +99,18 @@ let emailVal = () => {
     if (atIndex <= 0 || atIndex === email.length - 1) {
         emailError.innerHTML = "Please enter a valid email!";
         emailError.classList.add("show");
-        return;
+        return false;
     }
 
     if (dotIndex <= atIndex + 1 || dotIndex === email.length - 1) {
         emailError.innerHTML = "Please enter a valid email!";
         emailError.classList.add("show");
-        return;
+        return false;
     }
 
     emailError.innerHTML = "";
     emailError.classList.remove("show");
+    return true;
 };
 
 let phoneVal = () => {
@@ -106,9 +120,11 @@ let phoneVal = () => {
     if (phone.length !== 11 || isNaN(phone)) {
         phoneError.innerHTML = "Please enter a valid 11-digit phone number!";
         phoneError.classList.add("show");
+        return false;
     } else {
         phoneError.innerHTML = "";
         phoneError.classList.remove("show");
+        return true;
     }
 };
 
@@ -119,13 +135,12 @@ let msgVal = () => {
     if (msg === "") {
         msgError.innerHTML = "Message cannot be empty!";
         msgError.classList.add("show");
+        return false;
     } else {
         msgError.innerHTML = "";
         msgError.classList.remove("show");
+        return true;
     }
-
-    document.getElementById('msg').addEventListener('input', msgVal);
-    document.getElementById('msg').addEventListener('focus', msgVal);
 };
 
 document.getElementById('fname').addEventListener('input', fnameVal);

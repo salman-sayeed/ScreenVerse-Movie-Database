@@ -1,3 +1,15 @@
+const ball = document.querySelector(".toggle-ball");
+const items = document.querySelectorAll(".content-container,.navbar-container,.toggle");
+
+ball.addEventListener("click", () =>{
+    items.forEach(item=>{
+        item.classList.toggle("active");
+    });
+
+    ball.classList.toggle("active");
+})
+
+
 const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list");
 
@@ -18,14 +30,3 @@ arrows.forEach((arrow,i)=>{
 
     console.log(movieLists[i].querySelectorAll("img").length)
 });
-
-const ball = document.querySelector(".toggle-ball");
-const items = document.querySelectorAll(".content-container,.navbar-container,.toggle");
-
-ball.addEventListener("click", () =>{
-    items.forEach(item=>{
-        item.classList.toggle("active");
-    });
-
-    ball.classList.toggle("active");
-})

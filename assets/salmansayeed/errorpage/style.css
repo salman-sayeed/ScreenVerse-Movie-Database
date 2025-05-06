@@ -1,0 +1,45 @@
+.content-container{
+    background-color: red;
+    width: 100%;
+
+    /* background-color: #151515; */
+    color: white;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.content-container-item{
+    background-color: green;
+    width: 60%;
+    height: 600px;
+    margin: 30px 0 30px 0;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+}
+.container-item-msg{
+    width:  600px;
+    text-align: center;
+}
+
+.container-item-title{
+    background-color: blue;
+    font-size: 50px;
+    margin-bottom: 5px ;
+}
+
+.container-item-desc{
+    background-color: blueviolet;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px ;
+}
+
+
+.container-item-img{
+    background-color: orange;
+    width: 350px;
+}
