@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+}
+
+.content-container{
+    width: 100%;
+}
+
+.container-profile-box {
+    background-image: url('profile-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.container-profile-box-blurr{
+    height: 1000px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(50px); 
+}
+
+.profile-content{
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    justify-content: center;
+} 
+
+/* ----------- profile info box -----------*/
+.profile-info{
+    width: 100%;
+    height: 150px;
+    display: flex;
+}
+
+.info-title{
+    flex: 2;
+    justify-content: flex-start;
+    margin: 80px 0 0 80px;
+    padding-left: 5px;
+}
+
+.info-title p{
+    margin-top: 5px;
+}
+
+.info-links{
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: end;
+    margin: 0 80px 0 0;
+
+}
+
+.links-item{
+    width: 150px;
+    height: 50px;
+    right: 0;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.links-item i{
+    padding-top: 8px;
+}
+
+.goldstar{
+    color: goldenrod;
+    margin-right: 5px;
+}
+
+.bluestar{
+    color: #0066ff;
+    margin-right: 5px;
+}
+
+.trend{
+    color: #2eb82e;
+    margin-right: 5px;
+}
+
+/* ----------- profile psoter box -----------*/
+
+.profile-content-poster{
+    background-color: antiquewhite  ;
+    width: 300px ;
+    height: 459px;
+
+    background-image: url(poster.jpg);
+    background-repeat: no-repeat;
+    margin: 10px 0 0 20px;
+
+    border-radius: 0 20px 20px 20px;
+}
+
+.profile-content-trailer {
+    height: 459px;
+    margin: 10px 0 0 10px;
+    border-radius: 0 20px 20px 20px;
+}
+
+
+/* ----------- profile desc box -----------*/
+
+.profile-desc{
+    background-color: red;
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.desc-box{
+    width: 650px;
+    height: 350px ;
+}
+.desc-box1{
+    width: 800px;
+    margin:0 0 0 100px;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.genre{
+    margin-right: 10px;
+    padding: 3px 10px 0 10px;      
+    height: 25px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    border: 1px solid white ;
+    border-radius: 50px;
+}
+
+
+.desc-box2{
+    background-color: #151515;
+    width: 400px;
+    margin-left: 10px;
+}
