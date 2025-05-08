@@ -1,4 +1,4 @@
 <?php
-    header("Location: view/salmansayeed/landingpage/landingpage.html");
+    header("Location: view/salmansayeed/landingpage.php");
     exit();
 ?>

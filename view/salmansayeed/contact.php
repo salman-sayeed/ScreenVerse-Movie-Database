@@ -5,43 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Screenverse | Contact Us</title>
 
-    <link rel="icon" type="image/png" href="../../../assets/icons/logosmall.png">
+    <link rel="icon" type="image/png" href="../../assets/icons/logosmall.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="../../../assets/salmansayeed/main-style.css">
-    <link rel="stylesheet" href="../../../assets/salmansayeed/contact/style.css">
+    <link rel="stylesheet" href="../../assets/salmansayeed/main-style.css">
+    <link rel="stylesheet" href="../../assets/salmansayeed/contact/style.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <a href="../../../index.php"><img src="../../../assets/icons/logomain.png"></a>
-            </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item">Movies</li>
-                    <li class="menu-list-item">Series</li>
-                    <li class="menu-list-item">Popular</li>
-                    <li class="menu-list-item">Trends</li>
-                </ul>
-            </div>
-            <div class="login-container">
-                <div class="login-container-link">
-                    <a class="login-container-link btn" href="#loginpage">Login</a>
-                </div>
-                <div class="toggle">
-                    <i class="fa-solid fa-moon toggle-icon"></i>
-                    <i class="fa-solid fa-sun toggle-icon"></i>
-                    <div class="toggle-ball"></div>
-                </div>
-            </div>
-        </div>
-    </div> 
+    <?php include('navbar.php') ?>
 
     <div class="content-container">
         <div class="content-container-box">
@@ -49,7 +24,7 @@
             <div class="content-container-items">
                 <h1 class="contact-box">CONTACT US</h1>
                 <p class="contact-box">If you have any questions, suggestions, or need further information, please don’t hesitate to reach out.</p>
-                <form id="contact-form" method="post" action="../../../view/salmansayeed/landingpage/landingpage.html">
+                <form id="contact-form" method="post" action="contact.php">
                     <div class="items">
                         <input type="text" id="fname" placeholder="Enter Your First Name">
                         <span class="error-msg" id="fname-error"></span>
@@ -79,24 +54,10 @@
         </div>
     </div>
 
-    <div class="footer-container">
-        <div class="footer-container-wrapper">
-            <div class="footer-container-items">
-                <div class="footer-container-logo">
-                    <a><img src="../../../assets/icons/logomain.png" class="footer-logo"></a>
-                </div>
-                <div class="footer-container-links">
-                    <a href="#about.html" class="footer-links">About</a>
-                    <a href="../Contact/contact.html" class="footer-links">Contact</a>
-                    <a href="#privacy.html" class="footer-links">Privacy Policy</a>
-                  </div>
-            </div>
-            <div class="footer-copy">
-                &copy; 2025 SCREENVERSE. All rights reserved.
-            </div>
-        </div>
-    </div>
+    <?php include('footer.php') ?>
 
-    <script src="../../../assets/salmansayeed/contact/script.js"></script>
+    <script src="../../assets/salmansayeed/contact/script.js"></script>
+    <script src="../../assets/salmansayeed/main-script.js"></script>
+
 </body>
 </html>

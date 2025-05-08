@@ -11,10 +11,12 @@ body {
     color: white;
 }
 
+/*------------------------------------------ navigation bar ------------------------------------------ */
 .navbar {
     width: 100%;
-    height: 50px;
+    height: 60px;
     background-color: black;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(255, 255, 255, 0.05);
 }
 
 .navbar-container{
@@ -48,10 +50,36 @@ body {
 
 .menu-list-item{
     margin-right: 30px;
-} 
+    height: 25px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 
-.menu-list-item.active{
-    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.menu-list-item:hover{
+    transform: scale(1.2);
+    font-weight:bold;
+    color: #00acc1;  
+}
+.menu-list-item::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #00acc1;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.menu-list-item:hover::after{
+    transform: scale(1.2);
+    font-weight:bold;  
 }
 
 .login-container{
@@ -66,12 +94,13 @@ body {
     width: 70px;
     height: 30px;
     border-radius: 10px;
-    transition: background-color 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
 }
 
 .login-container-link:hover {
     background-color: #007180; 
+    transform: scale(1.05) ;
 }
 
 .login-container-link .btn{
@@ -84,6 +113,8 @@ body {
     color: white;
     text-decoration: none;
 }
+
+/*------------------------------------------ darkmode slider ------------------------------------------ */
 
 .toggle{
     width: 40px;
@@ -112,25 +143,89 @@ body {
     transition: 0.5s ease all;
 }
 
-
-.navbar-container.active{
-    background-color: white;
-    color: black;
+/*------------------------------------------ side nav bar ------------------------------------------ */
+.hamburger-button{
+    width: 10px;
+    margin-right: 25px;
+    display: none;
 }
 
-.toggle.active{
-    background-color: black;
+.hamburger-button{
+    cursor: pointer;
 }
 
-.toggle-ball.active{
-    background-color: white;
-    transform: translateX(-20px);
+.cancel-button{
+    right: 0;
+    font-size: 20px;
+    margin: 20px 0 20px 0;
+    cursor: pointer;
 }
 
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 1000;
+    display: none;
+    flex-direction: column ;
+    color: white;
+    align-items: flex-start;
+    justify-items: flex-start;
+}
+
+.sidebar li{
+    width: 100%;
+    list-style: none;
+
+}
+
+.sidebar-list-item{
+    margin-top: 30px;
+    height: 25px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.sidebar-list-item:hover{
+    transform: scale(1.2);
+    font-weight:bold;
+    color: #00acc1;  
+}
+.sidebar-list-item::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #00acc1;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-list-item:hover::after{
+    transform: scale(1.2);
+    font-weight:bold;  
+}
+
+.sidebar-list-topitem{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+
+/*------------------------------------------ footer ------------------------------------------ */
 .footer-container {
     background-color: black;
     width: 100%;
-    height: 100px;
 }
   
 .footer-container-wrapper {
@@ -149,24 +244,75 @@ body {
 }
 
 .footer-links{
+    display: inline-block;
     text-decoration: none;
     color: lightgray;
     font-size: 16px;
     padding-right: 10px;
+
+    transition: transform 0.3s ease-out;
 }
 
 .footer-copy{
     color: lightgray;
-    padding: 10px 0 0 0;
+    padding: 10px 0 10px 0;
     font-size: 12px;
 }
 
+.footer-container-social{
+    margin: 10px;    
+}
 
-@media only screen and (max-width: 900px){
+.footer-links:hover{
+    color: #00acc1;
+    transform: scale(1.05);
+}
+
+/*------------------------------------------ darkmode operation ------------------------------------------ */
+.content-container.active{
+    background-color: white;
+    color: black;
+}
+
+.navbar-container.active{
+    background-color: white;
+    color: black;
+}
+
+.toggle.active{
+    background-color: black;
+}
+
+.toggle-ball.active{
+    background-color: white;
+    transform: translateX(-20px);
+}
+
+.sidebar.active {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black;
+}
+
+.footer-container.active{
+    background-color: #d9d9d9;;
+    color: black;
+}
+.footer-color.active{
+    color: black;
+}
+
+
+
+@media (max-width: 800px){
+    .hideOnMobile{display: none;}
     .menu-container{display: none;}
     .logo-container img{
         width: 150px;
-        height: 100%;
+        height: auto;
         padding-top: 4px ;
     }
+    .hamburger-button{display: block;}
+}
+@media (max-width: 400px){
+    .sidebar{width: 100%;}
 }

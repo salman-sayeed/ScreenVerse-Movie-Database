@@ -1,19 +1,5 @@
-const ball = document.querySelector(".toggle-ball");
-const items = document.querySelectorAll(".content-container,.navbar-container,.content-container-box,.contact-box,.toggle");
-
-ball.addEventListener("click", () =>{
-    items.forEach(item=>{
-        item.classList.toggle("active");
-    });
-
-    ball.classList.toggle("active");
-})
-
-
-
-
-
-document.getElementById('reset-btn').addEventListener('click', () => {  //resetbutton
+//------------------------------ reset button ------------------------------
+document.getElementById('reset-btn').addEventListener('click', () => { 
     
     document.getElementById('fname').value = "";
     document.getElementById('lname').value = "";
@@ -31,18 +17,21 @@ document.getElementById('reset-btn').addEventListener('click', () => {  //resetb
     document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
 });
 
-document.getElementById('contact-form').addEventListener('submit', function (e) {
-    const result = validateForm(); // Get validation result
+//------------------------------ submit button ------------------------------
 
-    console.log("Validation result:", result); // Optional: Debugging
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    const result = validateForm();
 
     if (!result) {
-        e.preventDefault(); // Prevent form submission if validation fails
+        e.preventDefault();
+    }
+    else{
+        alert("Your message has been successfully submitted. Thank you for contacting us!");
     }
 });
 
 
-
+//------------------------------ field validations ------------------------------
 const validateForm = () => {
     let isValid = true;
 

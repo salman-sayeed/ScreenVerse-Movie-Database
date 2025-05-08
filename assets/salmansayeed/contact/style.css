@@ -17,6 +17,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1); 
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+    color: black;
 }
 
 .content-container-box{
@@ -29,6 +30,8 @@
     margin: 50px 0 50px 0;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
+
+    color: white;
 }
 
 .content-container-items{
@@ -39,12 +42,7 @@
 }
 
 .contact-box{
-    color: white;
     margin-bottom: 20px;    
-}
-
-.contact-box.active{
-    color: black;
 }
 
 textarea{
@@ -82,8 +80,7 @@ input::placeholder {
     outline: none;
     border: none;
     border-radius: 10px;
-    border-radius: 10px;
-    transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;    
     cursor: pointer;
 
     color:  white;
@@ -93,6 +90,7 @@ input::placeholder {
 
 .buttons:hover{
     background-color: #007180;
+    transform: scale(1.05) ;
 }
 
 .error-msg{
@@ -133,3 +131,4 @@ input:focus, textarea:focus {
     border-color: #4A90E2;
     outline: none;
 }
+  
