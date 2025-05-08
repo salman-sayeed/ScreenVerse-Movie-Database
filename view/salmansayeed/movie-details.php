@@ -59,14 +59,52 @@
                             <li class="genre">Crime</li>
                             <li class="genre">Drama</li>
                         </ul>
-                        <p>The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.</p>
+                        <div class="desc-items">
+                            <p>The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.</p>
+                        </div>
+                        <div class="desc-items ditem">
+                            <p>Director</p>
+                            <a href="##">Sidney Lumet</a>
+                        </div>
+                        <div class="desc-items  ditem">
+                            <p>Writer</p>
+                            <a href="##">Reginald Rose</a>
+                        </div>
+                        <div class="desc-items ditem">
+                            <p>Stars</p>
+                            <a href="##">Henry Fonda, </a>
+                            <a href="##">Lee J. Cobb,</a>
+                            <a href="##">Martin Balsam</a>
+                        </div>
                     </div>
 
                     <div class="desc-box desc-box2">
-
+                        <div class="desc-box2-item">
+                            <div class="box2-button box2-button1">
+                            <i class="fa-solid fa-plus"></i><p>Add to Watchlist</p>
+                            </div>
+                        </div>
+                        <div onclick="window.location.href='streamingsites.php'" class="desc-box2-item">
+                            <div class="box2-button box2-button2">
+                            <i class="fa-regular fa-eye"></i><p>Stream Online</p>
+                            </div>
+                        </div>
+                        <div class="desc-box3-item">
+                            <div class="box3-item1">
+                                <p>2.5k</p>User Reviews
+                                <p>174</p>Critic Reviews
+                            </div>
+                            <div class="box3-item2">
+                                <p>97</p>Metascore
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="container-cast">
+
         </div>
     </div>
 
