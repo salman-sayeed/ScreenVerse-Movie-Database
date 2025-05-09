@@ -48,7 +48,7 @@
                              <!-- img in css -->
                     </div>
                     <div class="profile-content-trailer">
-                        <iframe width="1015" height="459" src="https://www.youtube.com/embed/TEN-2uTi2c0?si=uM9G_6_YAYS16Syh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="1015" height="459" src="https://www.youtube.com/embed/TEN-2uTi2c0?si=uM9G_6_YAYS16Syh&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="profile-desc">
@@ -104,7 +104,99 @@
         </div>
 
         <div class="container-cast">
-
+            <div class="container-cast-list">
+                <div class="cast-list">
+                    <div class="list-title">
+                        <p>Top Cast</p>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast1.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title"onclick="window.location.href='actor-details.php?id=ps1'">Henry Fonda</p>
+                                <p class="p-sub-title">Juror 8</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic" > <img src="../../assets/salmansayeed/movie-details/cast/cast2.webp"></div>
+                        <div class="list-profile-info" >
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'" >Martin Balsam</p>
+                                <p class="p-sub-title">Juror 1</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast3.png"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">E.G. Marshall</p>
+                                <p class="p-sub-title">Juror 4</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast4.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">Edward Binns</p>
+                                <p class="p-sub-title">Juror 6</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast5.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">George Voskovec</p>
+                                <p class="p-sub-title">Juror 11</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cast-list">
+                    <div class="list-title list-title2">
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast6.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">Lee J. Cobb</p>
+                                <p class="p-sub-title">Juror 3</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast7.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title"onclick="window.location.href='actor-details.php?id=ps1'">John Fiedler</p>
+                                <p class="p-sub-title">Juror 2</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast8.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title"onclick="window.location.href='actor-details.php?id=ps1'">Jack Klugman</p>
+                                <p class="p-sub-title">Juror 5</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast9.jpg"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">Jack Warden</p>
+                                <p class="p-sub-title">Juror 7</p>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-profile-pic"> <img src="../../assets/salmansayeed/movie-details/cast/cast10.webp"></div>
+                        <div class="list-profile-info">
+                                <p class="p-title" onclick="window.location.href='actor-details.php?id=ps1'">Ed Begley</p>
+                                <p class="p-sub-title">Juror 10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-cast-trivia">
+                <div class="trivia-top">
+                    <div class=""><p>Trivia</p></div>
+                    <div class="trivia-submit">
+                        <p>Submit your own trivia</p>
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+                </div>
+                <div class="trivia-bottom">
+                    <p>Director Sidney Lumet had the actors all stay in the same room for several hours on end and do their lines over and over without filming them. This was to give them a real taste of what it would be like to be cooped up in a room with the same people.</p>
+                </div>
+            </div>
         </div>
     </div>
 
