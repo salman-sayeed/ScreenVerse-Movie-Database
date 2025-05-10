@@ -198,6 +198,13 @@
                 </div>
             </div>
         </div>
+
+        <div class="container-inaccuracy">
+            <div class="report-box">
+                <p>If you notice any inaccurate information, please report it so we can make the necessary corrections.</p>
+                <button onclick="window.location.href='inaccuracy.php'" class="report-btn">Report</button>
+            </div>
+        </div>
     </div>
 
     <?php include("footer.php") ?>
