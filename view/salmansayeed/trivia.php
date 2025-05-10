@@ -21,7 +21,37 @@
     <div class="content-container">
         <div class="content-container-blurr">
             <div class="trivia-container">
-                
+                <div class="trivia-container-top">
+                    <div class="top-items trivia-title">
+                        <p>Trivia Submission</p>
+                    </div>
+                    <div class="top-items trivia-score">
+                        <div class="scorebox">
+                            <p>Your score:</p>
+                            <p class="score">500</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="trivia-container-bottom">
+                    <div class="bottom-items trivia-desc">
+                        <p>Fill this form to submit your own trivia!</p>
+                    </div>
+                    <div class="bottom-items trivia-textbox">
+                        <form method="post" action="##" onsubmit="return validateForm()">
+                            <div class="textboxs">
+                                
+                                <input id="textboxlink" class="textbox-link" type="text" placeholder="Link of the section">
+                                <span id="link-error"></span>
+                            </div>
+                            <div class="textboxs">
+                                <textarea id="textboxmsg" class="textbox-area"  placeholder="Your trivia!"></textarea>
+                                <span id="msg-error"></span>
+                            </div>
+                        
+                            </div>
+                            <div class="bottom-items trivia-submit"><button id="submitbtn" class="submitbtn" type="submit">Submit</button></div>
+                        </form>
+                </div>
             </div>
 
         </div>
@@ -29,5 +59,6 @@
 
     <?php include("footer.php") ?>
     <script src="../../assets/salmansayeed/main-script.js"></script>
+    <script src="../../assets/salmansayeed/trivia/style-trivia.js"></script>
 </body>
 </html>
