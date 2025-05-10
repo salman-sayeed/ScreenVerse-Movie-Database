@@ -188,7 +188,7 @@
             <div class="container-cast-trivia">
                 <div class="trivia-top">
                     <div class=""><p>Trivia</p></div>
-                    <div class="trivia-submit">
+                    <div class="trivia-submit" onclick="window.location.href='trivia.php'">
                         <p>Submit your own trivia</p>
                         <i class="fa-regular fa-pen-to-square"></i>
                     </div>

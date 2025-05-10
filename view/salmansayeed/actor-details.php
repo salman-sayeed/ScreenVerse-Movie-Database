@@ -54,7 +54,7 @@
                     <div class="desc-box desc-box2">
                         <div class="desc-box2-item">
                             <div class="box2-button box2-button1">
-                            <i class="fa-solid fa-plus"></i><p>Add to Watchlist</p>
+                            <i class="fa-solid fa-plus"></i><p>Add to List</p>
                             </div>
                         </div>
                     </div>
@@ -92,6 +92,9 @@
                 </div>
                 <div class="cast-list">
                     <div class="list-title list-title2">
+                        <div class="trivia-submit see-all" >
+                        <p >See all</p>
+                    </div>
                     </div>
                     <div class="list">
                         <div class="list-profile-pic"> <img src="../../assets/salmansayeed/actor-details/mv/mv4.jpg"></div>
@@ -119,7 +122,7 @@
             <div class="container-cast-trivia">
                 <div class="trivia-top">
                     <div class=""><p>Trivia</p></div>
-                    <div class="trivia-submit">
+                    <div class="trivia-submit" onclick="window.location.href='trivia.php'">
                         <p>Submit your own trivia</p>
                         <i class="fa-regular fa-pen-to-square"></i>
                     </div>
@@ -131,7 +134,55 @@
                     <div class=""><p>Awards</p></div>
                 </div>
                 <div class="trivia-bottom">
-                    <p>Director Sidney Lumet had the actors all stay in the same room for several hours on end and do their lines over and over without filming them. This was to give them a real taste of what it would be like to be cooped up in a room with the same people.</p>
+                    <div class="awards a-1">
+                        • Academy of Science Fiction, Fantasy & Horror Films, USA
+                        <div>
+                            <div class="award-desc">
+                                <p>2022 nominee <p class="award-desc-inner">Saturn  Award</p></p>
+                            </div>
+
+                            <div class="award-desc2">
+                                <p>Best Actor</p>
+                                <p><a href="##">The Batman</a></p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="award-desc">
+                                <p>2021 nominee <p class="award-desc-inner">Saturn  Award</p></p>
+                            </div>
+
+                            <div class="award-desc2">
+                                <p>Best Supporting Actor</p>
+                                <p><a href="##">Tenet</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awards">
+                        • Film Critics Circle of Australia Awards
+                        <div>
+                            <div class="award-desc">
+                                <p>2015 nominee <p class="award-desc-inner">FCCA  Award</p></p>
+                            </div>
+
+                            <div class="award-desc2">
+                                <p>Best Actor - Supporting Role</p>
+                                <p><a href="##">The Rover</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="awards">
+                        • Evening Standard British Film Awards
+                        <div>
+                            <div class="award-desc">
+                                <p>2018 nominee <p class="award-desc-inner">Evening Standard British Film Award</p></p>
+                            </div>
+
+                            <div class="award-desc2">
+                                <p>Best Actor</p>
+                                <p><a href="##">Good Time</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
