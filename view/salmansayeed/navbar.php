@@ -29,7 +29,7 @@
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../../index.php'">Home</li>
                 <li class="menu-list-item hideOnMobile">Movies</li>
                 <li class="menu-list-item hideOnMobile">Series</li>
-                <li class="menu-list-item hideOnMobile">Country</li>
+                <li class="menu-list-item hideOnMobile">Genre</li>
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='releasecalander.php'">Calander</li>
             </ul>
         </div>
