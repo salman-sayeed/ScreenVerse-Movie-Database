@@ -477,3 +477,18 @@ ul{
 .report-btn:hover{
     background-color:  #007180 ;
 }
+
+.links-item p{
+    cursor: pointer;
+} 
+
+.userreviewlink{
+    cursor: pointer;
+    text-decoration: none;
+    color: goldenrod;
+}
+
+.watchlnk a{
+    text-decoration: none;
+    color: white;
+}

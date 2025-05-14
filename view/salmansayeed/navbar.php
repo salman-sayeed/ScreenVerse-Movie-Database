@@ -10,8 +10,8 @@
         <li class="sidebar-list-item" onclick="window.location.href='../../index.php'">Home</li>
         <li class="sidebar-list-item">Movies</li>
         <li class="sidebar-list-item">Series</li>
-        <li class="sidebar-list-item">Country</li>
-        <li class="sidebar-list-item" onclick="window.location.href='releasecalander.php'">Calander</li>
+        <li class="sidebar-list-item" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
+        <li class="sidebar-list-item" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Catalog</li>
     </ul>
 </div>
 
@@ -29,13 +29,13 @@
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../../index.php'">Home</li>
                 <li class="menu-list-item hideOnMobile">Movies</li>
                 <li class="menu-list-item hideOnMobile">Series</li>
-                <li class="menu-list-item hideOnMobile">Genre</li>
-                <li class="menu-list-item hideOnMobile" onclick="window.location.href='releasecalander.php'">Calander</li>
+                <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
+                <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Catalog</li>
             </ul>
         </div>
         <div class="login-container ">
             <div class="login-container-link hideOnMobile">
-                <a class="login-container-link btn" href="#loginpage">Login</a>      
+                <a class="login-container-link btn" href="../mdsanjidhasan/login.html">Login</a>      
             </div>
             <div class="toggle">
                 <i class="fa-solid fa-moon toggle-icon"></i>

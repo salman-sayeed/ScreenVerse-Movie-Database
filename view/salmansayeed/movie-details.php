@@ -29,12 +29,12 @@
                         <p>1957 • 1h 37m </p>
                     </div>
                     <div class="info-links">
-                        <div class="links-item">
+                        <div class="links-item" >
                             <p>ScreenVerse Rating</p>
                             <p><i class="fa-solid fa-star goldstar"></i> 9/10</p>
                         </div>
                         <div class="links-item">
-                            <p>Your Rating</p>
+                            <p onclick="window.location.href=('../mdsanjidhasan/Rating System.php')">Your Rating</p>
                             <p><i class="fa-regular fa-star bluestar"></i> -/-</p>
                         </div>
                         <div class="links-item">
@@ -81,7 +81,7 @@
                     <div class="desc-box desc-box2">
                         <div class="desc-box2-item">
                             <div class="box2-button box2-button1">
-                            <i class="fa-solid fa-plus"></i><p>Add to Watchlist</p>
+                            <i class="fa-solid fa-plus"></i><p class="watchlnk"><a href="../mdsanjidhasan/Watchlist.php">Add to Watchlist</a></p>
                             </div>
                         </div>
                         <div onclick="window.location.href='streamingsites.php'" class="desc-box2-item">
@@ -91,7 +91,7 @@
                         </div>
                         <div class="desc-box3-item">
                             <div class="box3-item1">
-                                <p>2.5k</p>User Reviews
+                                <p>2.5k</p><a href="../mdsanjidhasan/User Reviews.php" class="userreviewlink">User Reviews</a>
                                 <p>174</p>Critic Reviews
                             </div>
                             <div class="box3-item2">
