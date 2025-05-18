@@ -1,35 +1,43 @@
 <?php
 session_start();
+error_reporting(E_ALL);
+require_once('../model/userModel.php'); // Use model for database login
 
-$validEmail = "user@example.com";
-$validPassword = "123456";
 $error = '';
 
 // Handle login POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = trim($_POST['email'] ?? '');
+    $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
     $remember = isset($_POST['remember']);
 
-    if (empty($email)) {
-        $error = "Email is required.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Invalid email format.";
-    } elseif (empty($password)) {
+    if ($username === "") {
+        $error = "Username is required.";
+    } elseif ($password === "") {
         $error = "Password is required.";
-    } elseif ($email !== $validEmail || $password !== $validPassword) {
-        $error = "Invalid email or password.";
     } else {
-        $_SESSION['email'] = $email;
+        $user = ['username' => $username, 'password' => $password];
+        $status = login($user);  // login function from model
 
-        if ($remember) {
-            setcookie('status', 'loggedin', time() + (86400 * 7), "/"); // 7 days
+        if ($status) {
+            $_SESSION['username'] = $username;
+
+            if ($remember) {
+                setcookie('status', 'true', time() + (86400 * 7), "/"); // 7 days
+            } else {
+                setcookie('status', 'true', 0, "/"); // session cookie
+            }
+
+            header("Location: ../view/home.php");
+            exit();
         } else {
-            setcookie('status', 'loggedin', 0, "/"); // session cookie
+            // Redirect to login if authentication fails
+            header("Location: ../view/login.html");
+            exit();
         }
-
-        header("Location: index.php");
-        exit();
     }
+} else {
+    header("Location: ../view/login.html");
+    exit();
 }
 ?>

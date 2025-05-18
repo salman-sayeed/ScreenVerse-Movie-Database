@@ -158,5 +158,7 @@ $userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
   &copy; 2025 Media Catalog - Rating System
 </footer>
 </body>
-<script src="ratingsystem.js"></script>
+<form method="post" action="../assets/ratingsystem.js">
+
+<script src="assets/mdsanjidhasan/Rating System/ratingsystem.js"></script>
 </html>
