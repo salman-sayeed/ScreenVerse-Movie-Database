@@ -175,4 +175,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 </body>
+<script src="reset password/resetvalidation.js"></script>
 </html>

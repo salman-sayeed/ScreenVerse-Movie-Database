@@ -174,4 +174,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
 </div>
 
 </body>
+<script src="profile management/profilemanagement.js"></script>
 </html>

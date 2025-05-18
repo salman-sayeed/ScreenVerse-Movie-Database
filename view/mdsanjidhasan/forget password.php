@@ -175,4 +175,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 </body>
+<script src="forget password/forgetpasswordvalidation.js"></script>
 </html>
