@@ -12,7 +12,7 @@
         <li><i onclick="hideSidebar()" class="fa-regular fa-circle-xmark cancel-button"></i>
         <li class="sidebar-list-topitem">
             <div class="login-container-link">
-                 <a class="login-container-link btn" href="#loginpage">Login</a>      
+                 <a class="login-container-link btn" href="../mdsanjidhasan/login.php">Login</a>      
             </div>
         </li>
         <li class="sidebar-list-item" onclick="window.location.href='../../index.php'">Home</li>
@@ -43,7 +43,7 @@
         </div>
         <div class="login-container ">
             <div class="login-container-link hideOnMobile">
-                <a class="login-container-link btn" href="../mdsanjidhasan/login.html">Login</a>      
+                <a class="login-container-link btn" href="../mdsanjidhasan/login.php">Login</a>      
             </div>
             <div class="toggle">
                 <i class="fa-solid fa-moon toggle-icon"></i>
