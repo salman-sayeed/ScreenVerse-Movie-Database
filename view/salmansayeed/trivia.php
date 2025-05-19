@@ -37,14 +37,14 @@
                         <p>Fill this form to submit your own trivia!</p>
                     </div>
                     <div class="bottom-items trivia-textbox">
-                        <form method="post" action="##" onsubmit="return validateForm()">
+                        <form method="post" action="../../controller/salmansayeed/trivia-controller.php" onsubmit="return validateForm()">
                             <div class="textboxs">
                                 
-                                <input id="textboxlink" class="textbox-link" type="text" placeholder="Link of the section">
+                                <input id="textboxlink" class="textbox-link" type="text" name="link" placeholder="Link of the section">
                                 <span id="link-error"></span>
                             </div>
                             <div class="textboxs">
-                                <textarea id="textboxmsg" class="textbox-area"  placeholder="Your trivia!"></textarea>
+                                <textarea id="textboxmsg" class="textbox-area" name="message"  placeholder="Your trivia!"></textarea>
                                 <span id="msg-error"></span>
                             </div>
                         

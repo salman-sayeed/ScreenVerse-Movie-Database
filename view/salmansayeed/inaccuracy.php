@@ -31,14 +31,14 @@
                         <p>If you notice any inaccurate information, please report it so we can make the necessary corrections.</p>
                     </div>
                     <div class="bottom-items trivia-textbox">
-                        <form method="post" action="##" onsubmit="return validateForm()">
+                        <form method="post" action="../../controller/salmansayeed/inaccuracy-controller.php" onsubmit="return validateForm()">
                             <div class="textboxs">
                                 
-                                <input id="textboxlink" class="textbox-link" type="text" placeholder="Link of the section">
+                                <input id="textboxlink" class="textbox-link" type="text" name="link" placeholder="Link of the section">
                                 <span id="link-error"></span>
                             </div>
                             <div class="textboxs">
-                                <textarea id="textboxmsg" class="textbox-area"  placeholder="Details"></textarea>
+                                <textarea id="textboxmsg" class="textbox-area" name="message"  placeholder="Details"></textarea>
                                 <span id="msg-error"></span>
                             </div>
                         

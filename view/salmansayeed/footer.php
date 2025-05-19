@@ -1,3 +1,11 @@
+<?php 
+    if (basename(__FILE__) == basename($_SERVER['PHP_SELF'])) {
+        // Accessed directly
+        header('Location: ./error.php');
+        exit();
+    }
+?>
+
 <div class="footer-container">
         <div class="footer-container-wrapper">
             <div class="footer-container-items">

@@ -24,25 +24,25 @@
             <div class="content-container-items">
                 <h1 class="contact-box">CONTACT US</h1>
                 <p class="contact-box">If you have any questions, suggestions, or need further information, please don’t hesitate to reach out.</p>
-                <form id="contact-form" method="post" action="contact.php">
+                <form id="contact-form" method="post" action="../../controller/salmansayeed/contact-controller.php">
                     <div class="items">
-                        <input type="text" id="fname" placeholder="Enter Your First Name">
+                        <input type="text" id="fname" name="fname" placeholder="Enter Your First Name">
                         <span class="error-msg" id="fname-error"></span>
                     </div>
                     <div class="items">
-                        <input type="text" id="lname" placeholder="Enter Your Last Name">
+                        <input type="text" id="lname" name="lname" placeholder="Enter Your Last Name">
                         <span class="error-msg" id="lname-error"></span>
                     </div>
                     <div class="items">
-                        <input type="email" id="email" placeholder="Enter Your Email">
+                        <input type="email" id="email" name="email" placeholder="Enter Your Email">
                         <span class="error-msg" id="email-error"></span>
                     </div>
                     <div class="items">
-                        <input type="text" id="phone" placeholder="Enter Your Phone Number">
+                        <input type="text" id="phone" name="phone" placeholder="Enter Your Phone Number">
                         <span class="error-msg" id="phone-error"></span>
                     </div>
                     <div class="items">
-                        <textarea id="msg" placeholder="Enter Your Message Here"></textarea>
+                        <textarea id="msg" name="msg" placeholder="Enter Your Message Here"></textarea>
                         <span class="error-msg" id="msg-error"></span>
                     </div>
                     <div class="content-container-buttons">
