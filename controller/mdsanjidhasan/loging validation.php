@@ -1,11 +1,9 @@
 <?php
-session_start();
 error_reporting(E_ALL);
-require_once('../model/userModel.php'); // Use model for database login
-
+require_once('../model/userModel.php'); 
 $error = '';
 
-// Handle login POST
+ Handle login POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
@@ -17,27 +15,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Password is required.";
     } else {
         $user = ['username' => $username, 'password' => $password];
-        $status = login($user);  // login function from model
-
+        $status = login($user);  
         if ($status) {
             $_SESSION['username'] = $username;
 
             if ($remember) {
-                setcookie('status', 'true', time() + (86400 * 7), "/"); // 7 days
+                setcookie('status', 'true', time() + (86400 * 7), "/"); 
             } else {
-                setcookie('status', 'true', 0, "/"); // session cookie
+                setcookie('status', 'true', 0, "/"); 
             }
 
             header("Location: ../view/home.php");
             exit();
         } else {
-            // Redirect to login if authentication fails
-            header("Location: ../view/login.html");
+            
+            header("Location: ../view/login.php");
             exit();
         }
     }
-} else {
-    header("Location: ../view/login.html");
+}
+ else {
+    header("Location: ../view/login.php");
     exit();
 }
 ?>

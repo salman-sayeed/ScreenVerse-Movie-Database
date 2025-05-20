@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-// Set initial user password for demonstration
 if (!isset($_SESSION['user_password'])) {
     $_SESSION['user_password'] = 'admin123';
 }
@@ -14,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $new = trim($_POST['new-password'] ?? '');
     $confirm = trim($_POST['confirm-password'] ?? '');
 
-    // Server-side validation
     if ($current !== $_SESSION['user_password']) {
         $error = 'Current password is incorrect.';
     } elseif ($new === '') {

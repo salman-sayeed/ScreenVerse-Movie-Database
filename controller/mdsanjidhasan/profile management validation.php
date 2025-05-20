@@ -1,7 +1,5 @@
 <?php
-session_start();
 
-// Initialize session values if not set
 if (!isset($_SESSION['profile'])) {
     $_SESSION['profile'] = [
         'name' => 'John Doe',
@@ -12,12 +10,10 @@ if (!isset($_SESSION['profile'])) {
     ];
 }
 
-// Validation messages
 $profile_error = '';
 $password_message = '';
 $password_error = '';
 
-// Handle Edit Profile form submission with validation
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_profile'])) {
     $name = trim($_POST['name']);
     $address = trim($_POST['address']);
@@ -39,13 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_profile'])) {
     }
 }
 
-// Handle Password Change with validation
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
     $current = trim($_POST['current']);
     $new = trim($_POST['new']);
     $confirm = trim($_POST['confirm']);
 
-    // For demonstration, let's assume current password is "admin123"
     if ($current !== 'admin123') {
         $password_error = 'Current password is incorrect.';
     } elseif ($new === '') {
@@ -55,7 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
     } elseif ($new !== $confirm) {
         $password_error = 'New passwords do not match.';
     } else {
-        // Normally update the password in a database here
         $password_message = 'Password updated successfully.';
     }
 }

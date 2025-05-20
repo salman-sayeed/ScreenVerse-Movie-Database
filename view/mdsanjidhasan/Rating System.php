@@ -1,14 +1,7 @@
 <?php
 session_start();
-
-// Handle submitted rating
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating'])) {
-  $_SESSION['user_rating'] = (int) $_POST['rating'];
-}
-
-$userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
+include_once '../../controller/mdsanjidhasan/ratingsystemvalidation.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +94,6 @@ $userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
 
 <div class="container">
 
-  <!-- Star Rater -->
   <div class="section">
     <h2>Rate This Title</h2>
     <form id="ratingForm" method="POST">
@@ -120,13 +112,11 @@ $userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
     <?php endif; ?>
   </div>
 
-  <!-- Weighted Score Display -->
   <div class="section">
     <h2>Weighted Score</h2>
     <div class="score">4.2 / 5</div>
   </div>
 
-  <!-- Demographic Breakdown -->
   <div class="section">
     <h2>Demographic Breakdown</h2>
     <div class="demographics">
@@ -137,7 +127,6 @@ $userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
     </div>
   </div>
 
-  <!-- Critic vs Audience Scores -->
   <div class="section">
     <h2>Critic vs Audience</h2>
     <div class="compare">

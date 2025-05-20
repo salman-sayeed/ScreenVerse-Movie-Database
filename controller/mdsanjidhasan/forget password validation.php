@@ -1,9 +1,7 @@
 <?php
 session_start();
-
-// Set a demo recovery number for validation
 if (!isset($_SESSION['recovery_number'])) {
-    $_SESSION['recovery_number'] = '123456'; // Example static number
+    $_SESSION['recovery_number'] = '123456'; 
 }
 
 $successMessage = '';

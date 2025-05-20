@@ -1,33 +1,7 @@
 <?php
-session_start();
+include_once '../../controller/mdsanjidhasan/reset password validation.php';
 
-// Set initial user password in session for demo
-if (!isset($_SESSION['user_password'])) {
-    $_SESSION['user_password'] = 'admin123'; // You can change this default
-}
-
-$success = '';
-$error = '';
-
-// Handle form submission
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $current = $_POST['current-password'] ?? '';
-    $new = $_POST['new-password'] ?? '';
-    $confirm = $_POST['confirm-password'] ?? '';
-
-    if ($current !== $_SESSION['user_password']) {
-        $error = 'Current password is incorrect.';
-    } elseif ($new === '') {
-        $error = 'New password cannot be empty.';
-    } elseif ($new !== $confirm) {
-        $error = 'New passwords do not match.';
-    } else {
-        $_SESSION['user_password'] = $new;
-        $success = 'Password successfully updated.';
-    }
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,5 +149,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 </body>
-<script src="reset password/resetvalidation.js"></script>
+<script src="../../assets/mdsanjidhasan/resetvalidation.js"></script>
 </html>

@@ -1,3 +1,6 @@
+<?php
+include_once '../../controller/mdsanjidhasan/signup validation.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,10 +119,10 @@
     <button type="submit">Sign Up</button>
   </form>
   <div class="link-group">
-    Already have an account? <a href="login.html">Login</a>
+    Already have an account? <a href="login.php">Login</a>
   </div>
 </div>
 
 </body>
-<script src="singup/signupvalidation.js"></script>
+<script src="../../assets/mdsanjidhasan/signupvalidation.js"></script>
 </html>

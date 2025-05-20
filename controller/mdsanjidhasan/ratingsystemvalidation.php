@@ -1,12 +1,9 @@
 <?php
-session_start();
-include_once '../../controller/mdsanjidhasan/rating_validation.php';
-// Server-side validation for rating submission
 $rating_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating'])) {
     $rating = $_POST['rating'];
-
+$userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
     if (!is_numeric($rating)) {
         $rating_error = 'Invalid rating value.';
     } else {
@@ -21,4 +18,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating'])) {
 
 $userRating = isset($_SESSION['user_rating']) ? $_SESSION['user_rating'] : 0;
 ?>
-d:\xampp\htdocs\ScreenVerse-Movie-Database\controller\mdsanjidhasan

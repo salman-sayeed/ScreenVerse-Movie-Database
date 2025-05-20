@@ -1,7 +1,6 @@
 <?php
-session_start();
+include_once '../../controller/mdsanjidhasan/forget password validation.php';
 
-// Example recovery number for demonstration
 if (!isset($_SESSION['recovery_number'])) {
     $_SESSION['recovery_number'] = '123456';
 }
@@ -22,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($newPassword === '') {
         $errorMessage = 'Password cannot be empty.';
     } else {
-        // Save the new password (for demonstration, just set a session variable)
         $_SESSION['user_password'] = $newPassword;
         $successMessage = 'Password successfully updated!';
     }
@@ -149,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <div class="reset-container">
-  <h2>Reset Password</h2>
+  <h2>Forget Password</h2>
 
   <?php if ($successMessage): ?>
     <div class="message success"><?php echo $successMessage; ?></div>
@@ -175,5 +173,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 
 </body>
-<script src="forget password/forgetpasswordvalidation.js"></script>
+<script src="../../assets/mdsanjidhasan/forgetpasswordvalidation.js"></script>
 </html>

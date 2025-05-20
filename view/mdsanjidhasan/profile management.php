@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-// Initialize session values if not set
+include_once '../../controller/mdsanjidhasan/profile management validation.php';
 if (!isset($_SESSION['profile'])) {
     $_SESSION['profile'] = [
         'name' => 'John Doe',
@@ -12,7 +11,6 @@ if (!isset($_SESSION['profile'])) {
     ];
 }
 
-// Handle Edit Profile form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_profile'])) {
     $_SESSION['profile']['name'] = $_POST['name'];
     $_SESSION['profile']['address'] = $_POST['address'];
@@ -21,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_profile'])) {
     $_SESSION['profile']['bio'] = $_POST['bio'];
 }
 
-// Handle Password Change (Dummy, for display only)
 $password_message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_password'])) {
     $password_message = 'Password updated successfully (mock message).';

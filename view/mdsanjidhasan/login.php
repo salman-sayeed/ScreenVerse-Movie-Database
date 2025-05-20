@@ -1,3 +1,6 @@
+<?php
+//include_once '../../controller/mdsanjidhasan/loging validation.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,7 +132,7 @@
             <div class="checkbox-group">
                 <label><input type="checkbox" name="remember" /> Remember me</label>
                 <a href="forget password.php" class="forgot-password">Forgot Password?</a>
-                New user? <a href="singup.html">Sign up</a><br>
+                New user? <a href="singup.php">Sign up</a><br>
             </div>
             <div class="btn-group">
                 <button class="login-btn">Login</button>
@@ -137,5 +140,5 @@
             </div>
         </form>
 </body>
-<script src="loging/logningvali.js"></script>
+<script src="../../assets/mdsanjidhasan/logingvalidation.js"></script>
 </html>
