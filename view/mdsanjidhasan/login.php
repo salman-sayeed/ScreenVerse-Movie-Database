@@ -120,7 +120,7 @@
 <body>
     <div class="container">
         <h2>Login page</h2>
-        <form action="dashboard.html" method="post">
+        <form action="dashboard.php" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email"/>
@@ -135,7 +135,7 @@
                 New user? <a href="singup.php">Sign up</a><br>
             </div>
             <div class="btn-group">
-                <button class="login-btn">Login</button>
+                <button type="submit" class="login-btn">Login</button>
                 <button type="reset" class="reset-btn">Reset</button>
             </div>
         </form>
