@@ -124,7 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['move_item'])) {
 <div class="container">
   <div class="watchlists">
 
-    <!-- Watchlist 1 -->
     <div class="watchlist" id="summerMovies">
       <h2>☀️ Summer Movies</h2>
       <ul class="movie-list" id="list1">
@@ -138,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['move_item'])) {
       </div>
     </div>
 
-    <!-- Watchlist 2 -->
+    
     <div class="watchlist" id="actionClassics">
       <h2>🔥 Action Classics</h2>
       <ul class="movie-list" id="list2">

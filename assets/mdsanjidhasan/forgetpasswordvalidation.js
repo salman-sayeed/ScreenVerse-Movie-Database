@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   
       let errors = [];
   
-      // Recovery Number check (must be digits and at least 6 characters)
       let allDigits = true;
       for (let i = 0; i < recoveryNumber.length; i++) {
         const ch = recoveryNumber.charAt(i);
@@ -22,12 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         errors.push("Recovery number must be at least 6 digits and only contain numbers.");
       }
   
-      // New password check
       if (newPassword.length < 6) {
         errors.push("New password must be at least 6 characters long.");
       }
   
-      // Confirm password check
       if (newPassword !== confirmPassword) {
         errors.push("Passwords do not match.");
       }

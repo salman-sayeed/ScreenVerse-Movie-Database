@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Sample media data in session
 if (!isset($_SESSION['media_catalog'])) {
   $_SESSION['media_catalog'] = [
     [
@@ -27,7 +26,6 @@ if (!isset($_SESSION['media_catalog'])) {
   ];
 }
 
-// Filtering logic
 $filtered = $_SESSION['media_catalog'];
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
   $filters = ['decade', 'network', 'runtime', 'language', 'certification'];
@@ -137,7 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 </header>
 
 <div class="container">
-  <!-- Advanced Search / Filters -->
   <aside class="filters">
     <h2>Advanced Search</h2>
     <form method="get" onsubmit="return validateForm();">
@@ -172,7 +169,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     </form>
   </aside>
 
-  <!-- Title Browser -->
   <main class="catalog">
     <?php foreach ($filtered as $item): ?>
       <div class="card">

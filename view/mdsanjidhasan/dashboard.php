@@ -1,13 +1,10 @@
 <?php
 session_start();
 
-// Default session user info
 if (!isset($_SESSION['user'])) {
     $_SESSION['user'] = 'Guest';
-    $_SESSION['role'] = 'user'; // Can be 'admin', 'editor', etc.
-}
+    $_SESSION['role'] = 'user'; }
 
-// Example alert messages per widget
 $widgetAlert = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['stats'])) {
@@ -130,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 
   <div class="container">
-    <!-- Overview -->
+
     <h2>Analytics Overview</h2>
     <form method="post">
       <div class="grid">
@@ -159,12 +156,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="info-panel"><?php echo $widgetAlert; ?></div>
     <?php endif; ?>
 
-    <!-- Quick Actions -->
     <div class="quick-actions">
       <h2>Quick Actions</h2>
       <a href="reset password.php"><button class="action-button">Reset Password</button></a>
       <a href="profile management.php"><button class="action-button">Profile Management</button></a>
-      <a href="login.html"><button class="action-button">Log Out</button></a>
+      <a href="login.php"><button class="action-button">Log Out</button></a>
     </div>
   </div>
 

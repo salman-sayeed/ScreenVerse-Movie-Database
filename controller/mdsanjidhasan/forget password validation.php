@@ -12,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newPassword = trim($_POST['new-password'] ?? '');
     $confirmPassword = trim($_POST['confirm-password'] ?? '');
 
-    // Server-side validation
     if ($inputRecovery !== $_SESSION['recovery_number']) {
         $errorMessage = 'Invalid recovery number.';
     } elseif (empty($newPassword)) {
