@@ -36,7 +36,7 @@
             <ul class="menu-list">
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../../index.php'">Home</li>
                 <li class="menu-list-item hideOnMobile">Movies</li>
-                <li class="menu-list-item hideOnMobile">Series</li>
+                <li class="menu-list-item hideOnMobile" onclick="window.location.href='../salmansayeed/releasecalander.php'">Calander</li>
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Catalog</li>
             </ul>

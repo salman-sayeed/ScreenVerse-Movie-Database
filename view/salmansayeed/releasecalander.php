@@ -18,7 +18,33 @@
 <body>
     <?php include('navbar.php') ?>
 
-    <div class="continer-content">   </div>
+    <div class="continer-content">   
+        <div class="content-header">
+            <h1>Release Calander</h1> 
+        </div>
+        <div class="content-filter">
+            <div class="radio-button"><input type="radio" name="radio-sel"><label>Upcoming</label></div>
+            <div class="radio-button"><input type="radio" name="radio-sel"><label>Released</label></div>
+            <div class="drop-down">
+                <select name="sortByYear" required>
+                <option value="" disabled selected>Sort by Year</option>
+                <option value="2021-present">2021–Present</option>
+                <option value="2011-2020">2011–2020</option>
+                <option value="2001-2010">2001–2010</option>
+                <option value="1991-2000">1991–2000</option>
+                <option value="1981-1990">1981–1990</option>
+                <option value="before-1980">Before 1980</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="content-cards">
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-1.jpg">
+                <span class="card-items-title">F1</span>
+            </div>
+        </div>
+    </div>
 
     <?php include('footer.php') ?>
 </body>
