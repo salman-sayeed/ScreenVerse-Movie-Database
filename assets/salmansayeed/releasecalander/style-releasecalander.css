@@ -1,7 +1,7 @@
 .continer-content{
     background-color: #151515;
     color: white;
-    height: 700px;
+    height: 1000px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -57,10 +57,8 @@ select:focus {
     height: 300px; 
     overflow: hidden;
     border-radius: 10px;
-
     margin-top: 50px;
     transition: 1s all ease-in-out;
-
 }
 
 .card-items-img {
@@ -95,5 +93,23 @@ select:focus {
 }
 .card-items:hover .card-items-title {
     opacity: 1;
+}
+
+.card-title{
+    width: 100%;
+    height: 50px;
+}
+
+.card-title h2{
+    margin: 20px 0 0 80px;
+}
+
+.content-cards{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-items{
+    margin: 30px 15px 50px 15px;
 }
 

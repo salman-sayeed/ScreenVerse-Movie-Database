@@ -15,11 +15,10 @@
                  <a class="login-container-link btn" href="../mdsanjidhasan/login.php">Login</a>      
             </div>
         </li>
-        <li class="sidebar-list-item" onclick="window.location.href='../../index.php'">Home</li>
-        <li class="sidebar-list-item">Movies</li>
-        <li class="sidebar-list-item">Series</li>
-        <li class="sidebar-list-item" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
-        <li class="sidebar-list-item" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Catalog</li>
+            <li class="menu-list-item hideOnMobile" onclick="window.location.href='../../index.php'">Home</li>
+            <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Movies</li>
+            <li class="menu-list-item hideOnMobile" onclick="window.location.href='../salmansayeed/releasecalander.php'">Calander</li>
+            <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
     </ul>
 </div>
 
@@ -35,10 +34,9 @@
         <div class="menu-container">
             <ul class="menu-list">
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../../index.php'">Home</li>
-                <li class="menu-list-item hideOnMobile">Movies</li>
+                <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Movies</li>
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../salmansayeed/releasecalander.php'">Calander</li>
                 <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Genre Filtering.php'">Genre</li>
-                <li class="menu-list-item hideOnMobile" onclick="window.location.href='../mdsanjidhasan/Media Catalog.php'">Catalog</li>
             </ul>
         </div>
         <div class="login-container ">

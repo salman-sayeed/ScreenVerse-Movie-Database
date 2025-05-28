@@ -38,10 +38,61 @@
             </div>
         </div>
 
+        <div class="card-title"><h2>Upcoming</h2></div>
+
         <div class="content-cards">
             <div class="card-items">
                 <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-1.jpg">
                 <span class="card-items-title">F1</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-2.jpg">
+                <span class="card-items-title">Fantastic Four</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-3.jpg">
+                <span class="card-items-title">Superman</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-4.jpg">
+                <span class="card-items-title">Tron Ares</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-5.jpg">
+                <span class="card-items-title">Now You See Me</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/1-6.jpg">
+                <span class="card-items-title">Ballerina</span>
+            </div>
+        </div>
+
+        <div class="card-title"><h2>New Release</h2></div>
+
+        <div class="content-cards">
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-1.jpg">
+                <span class="card-items-title">Crow</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-2.jpg">
+                <span class="card-items-title">Rust</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-3.jpg">
+                <span class="card-items-title">Carry-on</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-4.jpg">
+                <span class="card-items-title">Deadpool vs Wolverine</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-5.jpg">
+                <span class="card-items-title">The Union</span>
+            </div>
+            <div class="card-items">
+                <img class="card-items-img" src="../../assets/salmansayeed/releasecalander/moviecards/2-6.jpg">
+                <span class="card-items-title">Lilo & Stitch</span>
             </div>
         </div>
     </div>
