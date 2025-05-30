@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once '../../controller/mdsanjidhasan/profile management validation.php';
 if (!isset($_SESSION['profile'])) {
     $_SESSION['profile'] = [

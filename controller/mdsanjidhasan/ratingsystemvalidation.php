@@ -1,4 +1,5 @@
 <?php
+session_start();
 $rating_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['rating'])) {
