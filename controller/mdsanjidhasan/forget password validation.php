@@ -21,7 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($newPassword !== $confirmPassword) {
         $errorMessage = 'Passwords do not match.';
     } else {
-        $_SESSION['user_password'] = $newPassword;
+        // Store hashed password for security
+        $_SESSION['user_password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+        // Clear recovery number after successful reset
+        unset($_SESSION['recovery_number']);
         $successMessage = 'Password successfully updated!';
     }
 }

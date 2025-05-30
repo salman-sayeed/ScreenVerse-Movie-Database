@@ -106,7 +106,13 @@ include_once '../../controller/mdsanjidhasan/signup validation.php';
 
 <div class="signup-container">
   <h2>Create Account</h2>
-  <form action="verify-email.html" method="post">
+  <?php if (!empty($errorMessage)): ?>
+    <div style="color: red; margin-bottom: 1rem;"><?php echo htmlspecialchars($errorMessage); ?></div>
+  <?php endif; ?>
+  <?php if (!empty($successMessage)): ?>
+    <div style="color: green; margin-bottom: 1rem;"><?php echo htmlspecialchars($successMessage); ?></div>
+  <?php endif; ?>
+  <form action="../../controller/mdsanjidhasan/signup validation.php" method="post">
     <label for="signup-name">Full Name</label>
     <input type="text" id="signup-name" name="name" required>
 

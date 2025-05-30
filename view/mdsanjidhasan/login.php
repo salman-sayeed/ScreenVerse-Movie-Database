@@ -1,5 +1,5 @@
 <?php
-//include_once '../../controller/mdsanjidhasan/loging validation.php';
+include_once '../../controller/mdsanjidhasan/loging validation.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,7 +120,7 @@
 <body>
     <div class="container">
         <h2>Login page</h2>
-        <form action="dashboard.php" method="post">
+        <form action="loging validation.php" method="post">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email"/>
@@ -135,10 +135,11 @@
                 New user? <a href="singup.php">Sign up</a><br>
             </div>
             <div class="btn-group">
-                <button type="submit" class="login-btn">Login</button>
+                <button class="login-btn">Login</button>
                 <button type="reset" class="reset-btn">Reset</button>
             </div>
         </form>
 </body>
 <script src="../../assets/mdsanjidhasan/logingvalidation.js"></script>
 </html>
+

@@ -1,41 +1,36 @@
 <?php
-error_reporting(E_ALL);
-require_once('../model/userModel.php'); 
-$error = '';
+session_start();
+require_once('../../model/mdsanjidhasan/userModel.php');
 
- Handle login POST
+//$conn = mysqli_connect('localhost', 'root', '', 'movie_database');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
     $remember = isset($_POST['remember']);
 
-    if ($username === "") {
-        $error = "Username is required.";
-    } elseif ($password === "") {
-        $error = "Password is required.";
-    } else {
-        $user = ['username' => $username, 'password' => $password];
-        $status = login($user);  
-        if ($status) {
-            $_SESSION['username'] = $username;
-
-            if ($remember) {
-                setcookie('status', 'true', time() + (86400 * 7), "/"); 
-            } else {
-                setcookie('status', 'true', 0, "/"); 
-            }
-
-            header("Location: ../view/home.php");
-            exit();
-        } else {
-            
-            header("Location: ../view/login.php");
-            exit();
-        }
+    if ($username === "" || $password === "") {
+        echo "Username and password required";
+        exit();
     }
-}
- else {
-    header("Location: ../view/login.php");
-    exit();
+
+    $user = ['username' => $username, 'password' => $password];
+    $status = login($user);  
+
+    if ($status) {
+        $_SESSION['username'] = $username;
+
+        if ($remember) {
+            setcookie('status', 'true', time() + (86400 * 7), "/"); 
+        } else {
+            setcookie('status', 'true', 0, "/"); 
+        }
+
+        echo "success"; // This tells AJAX it's successful
+    } else {
+        echo "Invalid username or password";
+    }
+} else {
+    echo "Invalid request";
 }
 ?>
