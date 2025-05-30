@@ -1,8 +1,5 @@
 <?php
 session_start();
-require_once('../../model/mdsanjidhasan/userModel.php');
-
-//$conn = mysqli_connect('localhost', 'root', '', 'movie_database');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -31,6 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Invalid username or password";
     }
 } else {
-    echo "Invalid request";
+    echo "";
 }
 ?>
