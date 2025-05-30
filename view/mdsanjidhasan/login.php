@@ -132,7 +132,7 @@ include_once '../../controller/mdsanjidhasan/loging validation.php';
             <div class="checkbox-group">
                 <label><input type="checkbox" name="remember" /> Remember me</label>
                 <a href="forget password.php" class="forgot-password">Forgot Password?</a>
-                New user? <a href="singup.php">Sign up</a><br>
+                New user? <a href="signup.php">Sign up</a><br>
             </div>
             <div class="btn-group">
                 <button class="login-btn">Login</button>
