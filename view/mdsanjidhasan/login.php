@@ -155,7 +155,7 @@ if (isset($_SESSION['user'])) {
             
             <div class="checkbox-group">
                 <label><input type="checkbox" name="remember"> Remember me</label>
-                <a href="forget_password.php" class="forgot-password">Forgot Password?</a>
+                <a href="forget password.php" class="forgot-password">Forgot Password?</a>
                 New user? <a href="signup.php">Sign up</a>
             </div>
             
