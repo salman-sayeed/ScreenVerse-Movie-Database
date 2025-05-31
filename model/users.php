@@ -27,11 +27,9 @@ class User {
             
             $stmt = $this->db->prepare($query);
             
-            // Store plain text password (INSECURE)
             $stmt->bindParam(':fullname', $fullname, PDO::PARAM_STR);
             $stmt->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt->bindParam(':password', $password, PDO::PARAM_STR); // Plain text
-            
             if ($stmt->execute()) {
                 return [
                     'id' => $this->db->lastInsertId(),
@@ -56,7 +54,6 @@ class User {
         
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         
-        // Compare plain text passwords (INSECURE)
         if ($user && $password === $user['password']) {
             unset($user['password']);
             return $user;

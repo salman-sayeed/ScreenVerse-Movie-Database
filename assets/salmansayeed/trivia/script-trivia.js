@@ -38,3 +38,26 @@ document.getElementById('textboxlink').addEventListener('focus', linkVal);
 
 document.getElementById('textboxmsg').addEventListener('input', msgVal);
 document.getElementById('textboxmsg').addEventListener('focus', msgVal);
+
+document.getElementById('trivia-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('trivia-msg').textContent = "Your trivia has been submitted.";
+        form.reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('trivia-msg').textContent = "Something went wrong. Please try again.";
+    });
+});

@@ -24,6 +24,7 @@
             <div class="content-container-items">
                 <h1 class="contact-box">CONTACT US</h1>
                 <p class="contact-box">If you have any questions, suggestions, or need further information, please don’t hesitate to reach out.</p>
+                <p class="contact-box" id="form-status-msg" style="color: green;"></p>
                 <form id="contact-form" method="post" action="../../controller/salmansayeed/contact-controller.php">
                     <div class="items">
                         <input type="text" id="fname" name="fname" placeholder="Enter Your First Name">

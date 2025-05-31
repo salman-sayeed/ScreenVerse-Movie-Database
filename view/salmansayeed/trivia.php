@@ -34,10 +34,10 @@
                 </div>
                 <div class="trivia-container-bottom">
                     <div class="bottom-items trivia-desc">
-                        <p>Fill this form to submit your own trivia!</p>
+                        <p id="trivia-msg">Fill this form to submit your own trivia!</p>
                     </div>
                     <div class="bottom-items trivia-textbox">
-                        <form method="post" action="../../controller/salmansayeed/trivia-controller.php" onsubmit="return validateForm()">
+                        <form id="trivia-form" method="post" action="../../controller/salmansayeed/trivia-controller.php">
                             <div class="textboxs">
                                 
                                 <input id="textboxlink" class="textbox-link" type="text" name="link" placeholder="Link of the section">
@@ -59,6 +59,6 @@
 
     <?php include("footer.php") ?>
     <script src="../../assets/salmansayeed/main-script.js"></script>
-    <script src="../../assets/salmansayeed/trivia/style-trivia.js"></script>
+    <script src="../../assets/salmansayeed/trivia/script-trivia.js"></script>
 </body>
 </html>

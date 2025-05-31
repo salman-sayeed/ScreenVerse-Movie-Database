@@ -147,4 +147,31 @@ document.getElementById('phone').addEventListener('focus', phoneVal);
 document.getElementById('msg').addEventListener('input', msgVal);
 document.getElementById('msg').addEventListener('focus', msgVal);
 
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text()) 
+    .then(result => {
+        
+        document.getElementById('form-status-msg').textContent = "Submitted successfully!";
+        document.getElementById('form-status-msg').style.color = "green";
+
+        
+        form.reset();
+    })
+    .catch(error => {
+        document.getElementById('form-status-msg').textContent = "Something went wrong. Please try again.";
+        document.getElementById('form-status-msg').style.color = "red";
+        console.error('Error:', error);
+    });
+});
+
+
 

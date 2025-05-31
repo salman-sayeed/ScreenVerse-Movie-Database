@@ -1,9 +1,9 @@
 <?php
 class Database {
     private $host = 'localhost';
-    private $db_name = 'screenverse'; // Change to your actual DB name
-    private $username = 'root';         // Default XAMPP username
-    private $password = '';             // Default XAMPP password (empty)
+    private $db_name = 'screenverse'; 
+    private $username = 'root';   
+    private $password = '';             
     private $conn;
 
     public function connect() {
@@ -20,10 +20,8 @@ class Database {
                 ]
             );
         } catch(PDOException $e) {
-            // Log to server error log
             error_log("DB Connection Error: " . $e->getMessage());
             
-            // Throw more user-friendly message
             throw new Exception("Database connection failed. Please try again later.");
         }
 

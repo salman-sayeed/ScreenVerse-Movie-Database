@@ -1,4 +1,3 @@
-// signupvalidation.js in your assets directory
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     
@@ -6,22 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
         let isValid = true;
         const errors = {};
         
-        // Get form values
         const fullname = document.getElementById('fullname').value.trim();
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value.trim();
         const confirm_password = document.getElementById('confirm_password').value.trim();
         
-        // Clear previous error messages
         document.querySelectorAll('.error-message').forEach(el => el.remove());
         
-        // Validate fullname
         if (!fullname) {
             isValid = false;
             displayError('fullname', 'Full name is required');
         }
         
-        // Validate email
         if (!email) {
             isValid = false;
             displayError('email', 'Email is required');
@@ -30,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
             displayError('email', 'Please enter a valid email');
         }
         
-        // Validate password
         if (!password) {
             isValid = false;
             displayError('password', 'Password is required');
@@ -39,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
             displayError('password', 'Password must be at least 6 characters');
         }
         
-        // Validate confirm password
         if (password !== confirm_password) {
             isValid = false;
             displayError('confirm_password', 'Passwords do not match');
