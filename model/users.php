@@ -12,25 +12,25 @@ function createUser($fullname, $email, $password) {
         throw new Exception("Email already registered");
     }
 
-    try {
-        $query = "INSERT INTO users (fullname, email, password) VALUES (:fullname, :email, :password)";
-        $stmt = $db->prepare($query);
+    $query = "INSERT INTO users (fullname, email, password) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($db, $query);
+    if (!$stmt) {
+        throw new Exception("Failed to prepare statement");
+    }
 
-        $stmt->bindParam(':fullname', $fullname, PDO::PARAM_STR);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR); // Plain text, consider hashing
+    mysqli_stmt_bind_param($stmt, "sss", $fullname, $email, $password);
 
-        if ($stmt->execute()) {
-            return [
-                'id' => $db->lastInsertId(),
-                'fullname' => $fullname,
-                'email' => $email,
-                'role' => 'user'
-            ];
-        }
-        return false;
-    } catch (PDOException $e) {
-        error_log("User creation failed: " . $e->getMessage());
+    if (mysqli_stmt_execute($stmt)) {
+        $id = mysqli_insert_id($db);
+        mysqli_stmt_close($stmt);
+        return [
+            'id' => $id,
+            'fullname' => $fullname,
+            'email' => $email,
+            'role' => 'user'
+        ];
+    } else {
+        mysqli_stmt_close($stmt);
         throw new Exception("Registration failed. Please try again.");
     }
 }
@@ -38,17 +38,25 @@ function createUser($fullname, $email, $password) {
 function login($email, $password) {
     $db = db_connect();
 
-    $query = "SELECT id, fullname, email, password, role FROM users WHERE email = :email LIMIT 1";
-    $stmt = $db->prepare($query);
-    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->execute();
+    $query = "SELECT id, fullname, email, password, role FROM users WHERE email = ? LIMIT 1";
+    $stmt = mysqli_prepare($db, $query);
+    if (!$stmt) {
+        return false;
+    }
 
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
 
-    if ($user && $password === $user['password']) {  // Note: consider password hashing verification
+    $result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($result);
+
+    mysqli_stmt_close($stmt);
+
+    if ($user && $password === $user['password']) { 
         unset($user['password']);
         return $user;
     }
+
     return false;
 }
 
@@ -57,73 +65,101 @@ function emailExists($email, $db = null) {
         $db = db_connect();
     }
 
-    try {
-        $query = "SELECT id FROM users WHERE email = :email LIMIT 1";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-
-        return $stmt->fetch() !== false;
-    } catch (PDOException $e) {
-        error_log("Email check failed: " . $e->getMessage());
+    $query = "SELECT id FROM users WHERE email = ? LIMIT 1";
+    $stmt = mysqli_prepare($db, $query);
+    if (!$stmt) {
         throw new Exception("Email verification service unavailable");
     }
+
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    $exists = mysqli_fetch_assoc($result) !== null;
+
+    mysqli_stmt_close($stmt);
+
+    return $exists;
 }
 
 function getUserById($id) {
     $db = db_connect();
 
-    try {
-        $query = "SELECT id, fullname, email, role FROM users WHERE id = :id LIMIT 1";
-        $stmt = $db->prepare($query);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Failed to get user $id: " . $e->getMessage());
+    $query = "SELECT id, fullname, email, role FROM users WHERE id = ? LIMIT 1";
+    $stmt = mysqli_prepare($db, $query);
+    if (!$stmt) {
         throw new Exception("User lookup failed.");
     }
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($result);
+
+    mysqli_stmt_close($stmt);
+
+    return $user;
 }
 
 function getAllUsers() {
     $db = db_connect();
 
-    try {
-        $query = "SELECT id, fullname, email, role FROM users ORDER BY id ASC";
-        $stmt = $db->prepare($query);
-        $stmt->execute();
+    $query = "SELECT id, fullname, email, role FROM users ORDER BY id ASC";
+    $result = mysqli_query($db, $query);
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Database error: " . $e->getMessage());
+    if (!$result) {
+        error_log("Database error: " . mysqli_error($db));
         return [];
     }
+
+    $users = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $users[] = $row;
+    }
+
+    mysqli_free_result($result);
+
+    return $users;
 }
 
 function deleteUser($userIdToDelete, $currentAdminId) {
     $db = db_connect();
 
-    try {
-        if ($userIdToDelete == $currentAdminId) {
-            return ['success' => false, 'message' => 'Cannot delete your own admin account'];
-        }
+    if ($userIdToDelete == $currentAdminId) {
+        return ['success' => false, 'message' => 'Cannot delete your own admin account'];
+    }
 
-        $checkQuery = "SELECT id FROM users WHERE id = ? AND role != 'admin'";
-        $checkStmt = $db->prepare($checkQuery);
-        $checkStmt->execute([$userIdToDelete]);
+    $checkQuery = "SELECT id FROM users WHERE id = ? AND role != 'admin'";
+    $stmt = mysqli_prepare($db, $checkQuery);
+    if (!$stmt) {
+        return ['success' => false, 'message' => 'Database error'];
+    }
 
-        if ($checkStmt->rowCount() === 0) {
-            return ['success' => false, 'message' => 'Admin users cannot be deleted'];
-        }
+    mysqli_stmt_bind_param($stmt, "i", $userIdToDelete);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
 
-        $deleteQuery = "DELETE FROM users WHERE id = ?";
-        $deleteStmt = $db->prepare($deleteQuery);
-        $deleteStmt->execute([$userIdToDelete]);
+    if (mysqli_num_rows($result) === 0) {
+        mysqli_stmt_close($stmt);
+        return ['success' => false, 'message' => 'Admin users cannot be deleted'];
+    }
 
+    mysqli_stmt_close($stmt);
+
+    $deleteQuery = "DELETE FROM users WHERE id = ?";
+    $deleteStmt = mysqli_prepare($db, $deleteQuery);
+    if (!$deleteStmt) {
+        return ['success' => false, 'message' => 'Database error'];
+    }
+
+    mysqli_stmt_bind_param($deleteStmt, "i", $userIdToDelete);
+    $success = mysqli_stmt_execute($deleteStmt);
+    mysqli_stmt_close($deleteStmt);
+
+    if ($success) {
         return ['success' => true, 'message' => 'User deleted successfully'];
-    } catch (PDOException $e) {
-        error_log("Delete user error: " . $e->getMessage());
+    } else {
         return ['success' => false, 'message' => 'Database error'];
     }
 }
