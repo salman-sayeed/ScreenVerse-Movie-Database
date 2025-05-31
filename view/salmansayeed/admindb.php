@@ -107,7 +107,7 @@ if (isset($_SESSION['error'])) {
                     ?>
                 </tbody>
             </table>
-            <a href="add_user.php" class="admin-button add-user-btn">Add New User</a>
+            <a href="adduser.php" class="admin-button add-user-btn">Add New User</a>
         </div>
 
         <div class="quick-actions">
