@@ -4,6 +4,21 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     header('Location: login.php');
     exit();
 }
+
+$successMessage = '';
+$errorMessage = '';
+
+if (isset($_SESSION['success'])) {
+    $successMessage = $_SESSION['success'];
+    unset($_SESSION['success']);
+}
+
+if (isset($_SESSION['error'])) {
+    $errorMessage = $_SESSION['error'];
+    unset($_SESSION['error']);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,12 +48,17 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
                     <h3><?php echo htmlspecialchars($_SESSION['user']['fullname']); ?></h3>
                     <p><?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
                     <div class="profile-actions">
-                        <form action="upload_profile.php" method="post" enctype="multipart/form-data">
-                            <input type="file" name="profile_pic" id="profile_pic" accept="image/*" class="file-input">
-                            <label for="profile_pic" class="admin-button">Change Picture</label>
-                            <button type="submit" class="admin-button">Upload</button>
+                        <form action="../../controller/salmansayeed/upload_profile.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="profile_pic" id="profile_pic" accept="image/*" required>
+                            <button type="submit" class="admin-button">Upload Picture</button>
                         </form>
-                        <button class="admin-button danger-button" id="remove-profile-btn">Remove Picture</button>
+                        
+                        <form action="../../controller/salmansayeed/remove_profile.php" method="post" style="display:inline;">
+                            <button type="submit" class="admin-button danger-button" 
+                                    onclick="return confirm('Are you sure you want to remove your profile picture?')">
+                                Remove Picture
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -73,8 +93,8 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
                                     <td>".htmlspecialchars($user['email'])."</td>
                                     <td>{$user['role']}</td>
                                     <td class='action-buttons'>
-                                        <a href='edit_user.php?id={$user['id']}' class='admin-button'>Edit</a>
-                                        <a href='delete_user.php?id={$user['id']}' 
+                                        
+                                        <a href='../../controller/salmansayeed/delete_user.php?id={$user['id']}' 
                                         class='admin-button danger-button'
                                         onclick='return confirm(\"Are you sure you want to delete this user?\");'>Delete</a>
                                     </td>
@@ -92,8 +112,7 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
 
         <div class="quick-actions">
             <a href="reset_password.php" class="action-button">Reset Password</a>
-            <a href="profile_management.php" class="action-button">Profile Management</a>
-            <a href="adminlogout.php" class="action-button">Log Out</a>
+            <a href="../../controller/salmansayeed/adminlogout.php" class="action-button">Log Out</a>
         </div>
     </div>
 

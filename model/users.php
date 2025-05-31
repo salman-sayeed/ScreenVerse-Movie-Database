@@ -95,15 +95,42 @@ class User {
     }
 
     public function getAllUsers() {
-    try {
-        $query = "SELECT id, fullname, email, role FROM users ORDER BY id ASC";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Database error: " . $e->getMessage());
-        return [];
+        try {
+            $query = "SELECT id, fullname, email, role FROM users ORDER BY id ASC";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("Database error: " . $e->getMessage());
+            return [];
+        }
     }
-}
+
+    public function deleteUser($userIdToDelete, $currentAdminId) {
+        try {
+            if ($userIdToDelete == $currentAdminId) {
+                return ['success' => false, 'message' => 'Cannot delete your own admin account'];
+            }
+
+            $checkQuery = "SELECT id FROM users WHERE id = ? AND role != 'admin'";
+            $checkStmt = $this->db->prepare($checkQuery);
+            $checkStmt->execute([$userIdToDelete]);
+            
+            if ($checkStmt->rowCount() === 0) {
+                return ['success' => false, 'message' => 'Admin users cannot be deleted'];
+            }
+
+            $deleteQuery = "DELETE FROM users WHERE id = ?";
+            $deleteStmt = $this->db->prepare($deleteQuery);
+            $deleteStmt->execute([$userIdToDelete]);
+
+            return ['success' => true, 'message' => 'User deleted successfully'];
+        } catch (PDOException $e) {
+            error_log("Delete user error: " . $e->getMessage());
+            return ['success' => false, 'message' => 'Database error'];
+        }
+    }
+
+
 }
 ?>

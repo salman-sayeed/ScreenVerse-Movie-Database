@@ -1,4 +1,7 @@
-/* Admin Dashboard Specific Styles */
+.login-container-link{
+    display: none;
+}
+
 .admin-content {
     padding: 30px;
     min-height: calc(100vh - 120px);
