@@ -1,5 +1,16 @@
 <?php
-include_once '../../controller/mdsanjidhasan/loging validation.php';
+session_start();
+
+// Redirect if already logged in
+if (isset($_SESSION['user'])) {
+    header('Location: ' . 
+        ($_SESSION['user']['role'] === 'admin' 
+            ? '../../view/salmansayeed/admindb.php' 
+            : '../../view/mdsanjidhasan/dashboard.php'
+        )
+    );
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,26 +131,40 @@ include_once '../../controller/mdsanjidhasan/loging validation.php';
 <body>
     <div class="container">
         <h2>Login page</h2>
-        <form action="loging validation.php" method="post">
+        
+        <?php if (isset($_SESSION['login_error'])): ?>
+            <div class="error-message">
+                <?= htmlspecialchars($_SESSION['login_error']) ?>
+                <?php unset($_SESSION['login_error']); ?>
+            </div>
+        <?php endif; ?>
+        
+        <form action="../../controller/mdsanjidhasan/login validation.php" method="post">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] = bin2hex(random_bytes(32)) ?>">
+            
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email"/>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required
+                       value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             </div>
+            
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"/>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
+            
             <div class="checkbox-group">
-                <label><input type="checkbox" name="remember" /> Remember me</label>
-                <a href="forget password.php" class="forgot-password">Forgot Password?</a>
-                New user? <a href="signup.php">Sign up</a><br>
+                <label><input type="checkbox" name="remember"> Remember me</label>
+                <a href="forget_password.php" class="forgot-password">Forgot Password?</a>
+                New user? <a href="signup.php">Sign up</a>
             </div>
+            
             <div class="btn-group">
-                <button class="login-btn">Login</button>
+                <button type="submit" class="login-btn">Login</button>
                 <button type="reset" class="reset-btn">Reset</button>
             </div>
         </form>
+    </div>
+    <script src="../../assets/mdsanjidhasan/login_validation.js"></script>
 </body>
-<script src="../../assets/mdsanjidhasan/logingvalidation.js"></script>
 </html>
-

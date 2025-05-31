@@ -1,0 +1,152 @@
+/* Admin Dashboard Specific Styles */
+.admin-content {
+    padding: 30px;
+    min-height: calc(100vh - 120px);
+}
+
+.admin-section {
+    background-color: #222;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.admin-section h2 {
+    color: #00acc1;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #00acc1;
+    padding-bottom: 10px;
+}
+
+.profile-pic-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00acc1;
+    margin-right: 20px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px
+}
+
+.file-input {
+    display: none;
+}
+
+.admin-button {
+    background-color: #00acc1;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+}
+
+.admin-button:hover {
+    background-color: #007180;
+    transform: scale(1.05);
+}
+
+.danger-button {
+    background-color: #e74c3c;
+}
+
+.danger-button:hover {
+    background-color: #c0392b;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #444;
+}
+
+th {
+    background-color: #333;
+    color: #00acc1;
+}
+
+tr:hover {
+    background-color: #2a2a2a;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.quick-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.action-button {
+    background-color: #00acc1;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.action-button:hover {
+    background-color: #007180;
+    transform: scale(1.05);
+}
+
+.add-user-btn {
+    margin-top: 15px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .profile-pic-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .profile-pic {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .profile-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .quick-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}

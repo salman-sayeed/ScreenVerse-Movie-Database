@@ -1,19 +1,8 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['user'])) {
-    $_SESSION['user'] = 'Guest';
-    $_SESSION['role'] = 'user'; }
-
-$widgetAlert = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['stats'])) {
-        $widgetAlert = 'Viewing user stats...';
-    } elseif (isset($_POST['tickets'])) {
-        $widgetAlert = 'Opening ticket analytics...';
-    } elseif (isset($_POST['sessions'])) {
-        $widgetAlert = 'Showing session data...';
-    }
+    header('Location: ../../view/mdsanjidhasan/login.php');
+    exit();
 }
 ?>
 
@@ -123,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="header">
     Home Dashboard
-    <span class="user-badge">Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?></span>
+    <span class="user-badge">Welcome, <?php echo htmlspecialchars($_SESSION['user']['fullname'] ?? 'Guest'); ?></span>
   </div>
 
   <div class="container">
@@ -158,9 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="quick-actions">
       <h2>Quick Actions</h2>
-      <a href="reset password.php"><button class="action-button">Reset Password</button></a>
-      <a href="profile management.php"><button class="action-button">Profile Management</button></a>
-      <a href="login.php"><button class="action-button">Log Out</button></a>
+      <a href="reset_password.php"><button class="action-button">Reset Password</button></a>
+      <a href="profile_management.php"><button class="action-button">Profile Management</button></a>
+      <a href="logout.php"><button class="action-button">Log Out</button></a>
     </div>
   </div>
 
