@@ -10,39 +10,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password'] ?? '');
     $confirm_password = trim($_POST['confirm_password'] ?? '');
 
-    try {
-        $user = new User();
-        
-        // Server-side validation
-        if (empty($fullname)) {
-            $errors['fullname'] = 'Full name is required';
-        }
+    if (empty($fullname)) {
+        $errors['fullname'] = 'Full name is required';
+    }
 
-        if (empty($email)) {
-            $errors['email'] = 'Email is required';
-        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Invalid email format';
-        }
+    if (empty($email)) {
+        $errors['email'] = 'Email is required';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'Invalid email format';
+    }
 
-        if (empty($password)) {
-            $errors['password'] = 'Password is required';
-        } elseif (strlen($password) < 8) {
-            $errors['password'] = 'Password must be at least 8 characters';
-        }
+    if (empty($password)) {
+        $errors['password'] = 'Password is required';
+    } elseif (strlen($password) < 6) {
+        $errors['password'] = 'Password must be at least 6 characters';
+    }
 
-        if ($password !== $confirm_password) {
-            $errors['confirm_password'] = 'Passwords do not match';
-        }
+    if ($password !== $confirm_password) {
+        $errors['confirm_password'] = 'Passwords do not match';
+    }
 
-        if (empty($errors)) {
-            if ($user->createUser($fullname, $email, $password)) {
+    if (empty($errors)) {
+        try {
+            $result = createUser($fullname, $email, $password);  
+
+            if ($result) {
                 $success = true;
-                // You might want to start a session here
-                // $_SESSION['user'] = $userData;
+            } else {
+                $errors['general'] = 'Registration failed. Please try again.';
             }
+        } catch (Exception $e) {
+            $errors['general'] = $e->getMessage();
         }
-    } catch (Exception $e) {
-        $errors['general'] = $e->getMessage();
     }
 }
 ?>
